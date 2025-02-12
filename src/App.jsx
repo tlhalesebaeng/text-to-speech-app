@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import './App.css';
 import TextArea from '../utils/TextArea';
 import Button from '../utils/Button';
