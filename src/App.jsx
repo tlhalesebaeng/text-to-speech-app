@@ -1,5 +1,7 @@
 import { useRef, useState } from 'react';
 import './App.css';
+import TextArea from '../utils/TextArea';
+import Button from '../utils/Button';
 
 // NOT SECURE TO HAVE THIS HERE
 const API_KEY = 'a9c2bdd481b14add93d6dc25aff683ed';
@@ -15,7 +17,7 @@ export default function App() {
         try {
             // Make the request
             const response = await fetch(
-                `http://api.voicerss.org/?key=${API_KEY}&hl=en-us&c=mp3&src=Hello, World!`
+                `http://api.voicerss.org/?key=${API_KEY}&hl=en-us&c=mp3&src=${textToConvert}`
             );
 
             //check if the response is okay
@@ -38,9 +40,9 @@ export default function App() {
     }
 
     return (
-        <>
-            <input ref={text} />
-            <button onClick={handleSpeech}>Speech</button>
-        </>
+        <main>
+            <TextArea ref={text} />
+            <Button onConvert={handleSpeech} title={'Convert'} />
+        </main>
     );
 }
